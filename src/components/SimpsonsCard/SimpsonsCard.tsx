@@ -1,11 +1,5 @@
-// import { homerSimpson, getFullName } from "./data";
-// import getHomerHobby from "./data";
-// import getHomerHobby, { homerSimpson, getFullName } from "./data";
-// Импорт всего что экспортируется из файла
-// import * as simpsonsData from "./data";
-
 import "./styles.css";
-import { SimpsonsProps } from "./types";
+import { SimpsonsCardProps } from "./types";
 
 // function SimponsCard(props) {
 function SimponsCard({
@@ -14,7 +8,7 @@ function SimponsCard({
   avatar,
   job,
   hobby = "No Hobby",
-}: SimpsonsProps) {
+}: SimpsonsCardProps) {
   // PROPS
   // 1. props - это обьект
   // 2. props - возможность передвать данные из одного компонента(родительского компонента) в другой(дочерний)

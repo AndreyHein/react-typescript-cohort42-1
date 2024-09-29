@@ -1,4 +1,4 @@
-export interface SimpsonsProps {
+export interface SimpsonsCardProps {
   firstName: string;
   lastName: string;
   avatar: string;
