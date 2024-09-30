@@ -3,7 +3,8 @@
 import Button from "components/Button/Button";
 
 import { CounterProps } from "./types"
-import "./styles.css";
+
+import { ButtonControl, CoutControll, PageWrapper } from "./styles";
 
 // !! Есть 2 основных способа вызова перерендера(обновления) компонента:
 // 1 - изменения state(посредством вызова функции setState())
@@ -27,15 +28,15 @@ function Counter({ count, onMinus, onPlus }: CounterProps) {
   // };
 
   return (
-    <div className="counter-wrapper">
-      <div className="button-control">
+    <PageWrapper>
+      <ButtonControl>
         <Button name="-" onClick={onMinus} />
-      </div>
-      <p className="count">{count}</p>
-      <div className="button-control">
+      </ButtonControl>
+      <CoutControll>{count}</CoutControll>
+      <ButtonControl>
         <Button name="+" onClick={onPlus} />
-      </div>
-    </div>
+      </ButtonControl>
+    </PageWrapper>
   );
 }
 

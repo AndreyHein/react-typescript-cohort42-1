@@ -20,6 +20,7 @@ function Lesson_08() {
       </ButtonControl>
       <ButtonControl>
         <Button
+        disabled={true}
           isDeleteVariant={true}
           name="Delete Button"
           onClick={() => {
