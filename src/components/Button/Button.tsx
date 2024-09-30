@@ -6,10 +6,12 @@ function Button({
   name,
   onClick,
   isDeleteVariant = false,
+  disabled = false,
 }: ButtonProps) {
   return (
     <ButtonComponent
       $isDeleteVariant={isDeleteVariant}
+      disabled={disabled}
       onClick={onClick}
       type={type}
     >
