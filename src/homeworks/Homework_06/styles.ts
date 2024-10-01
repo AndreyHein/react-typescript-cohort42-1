@@ -1,16 +1,19 @@
-.homework06_wrapper {
+import styled from "@emotion/styled";
+
+export const PageWrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex: 1;
   padding: 50px;
   gap: 30px;
-}
-.card-title {
+`;
+
+export const CardTitle = styled.h1`
   color: purple;
   font-size: 40px;
-}
+`;
 
-.card-contanier {
+export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -19,8 +22,8 @@
   border: 2px solid black;
   border-radius: 6px;
   padding: 40px;
-}
+`;
 
-.card-info {
+export const CardInfo = styled.p`
   font-size: 24px;
-}
+`;

@@ -1,4 +1,5 @@
-import "./styles.css";
+import { AvatarComponent, CardItem, PageWrapper } from "./styles";
+
 import { SimpsonsCardProps } from "./types";
 
 // function SimponsCard(props) {
@@ -17,12 +18,12 @@ function SimponsCard({
   // const userhobby = getHomerHobby();
   // console.log(simpsonsData.default()); //  это getHomerHobby. default - это то что вы экспортировали как default
 
-  const getSimpsonName = ():string => {
+  const getSimpsonName = (): string => {
     return `${firstName} ${lastName}`;
   };
 
   return (
-    <div className="card-wrapper">
+    <PageWrapper>
       {/* {image} */}
       {/* {homerSimpson.avatar ? (
         <img className="avatar" src={homerSimpson.avatar} alt="Avatar" />
@@ -37,11 +38,11 @@ function SimponsCard({
       )} */}
       {/* Условный рендеринг */}
       {/* {homerSimpson.avatar && <img className="avatar" src={""} alt="Avatar" />} */}
-      <img className="avatar" src={avatar} alt="Avatar" />
-      <p className="card-item">Full name: {getSimpsonName()} </p>
-      <p className="card-item">Job: {job}</p>
-      <p className="card-item">Hobby: {hobby}</p>
-    </div>
+      <AvatarComponent src={avatar} alt="Avatar" />
+      <CardItem>Full name: {getSimpsonName()} </CardItem>
+      <CardItem>Job: {job}</CardItem>
+      <CardItem>Hobby: {hobby}</CardItem>
+    </PageWrapper>
   );
 }
 

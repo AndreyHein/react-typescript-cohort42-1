@@ -2,7 +2,7 @@ import { useState } from "react";
 import { v4 } from "uuid";
 import Button from "components/Button/Button";
 
-import "./styles.css";
+import { ButtonContainer, ButtonControl, IngredientComponent, IngredientsContainer, IngredientTitle, PageWrapper } from "./styles";
 
 // ПРИМЕР РАБОТЫ С ДЕКСТРУКТУРИЗАЦИЕЙ МАССИВОВ
 // const animals = ["Dog", "Cat", "Pig", "Lion"];
@@ -63,9 +63,9 @@ function Consultation_03() {
     };
 
     return (
-      <div key={id} className="ingredient-button-control">
+      <ButtonControl key={id}>
         <Button name={ingredient} onClick={addIngredient} />
-      </div>
+      </ButtonControl>
     );
   });
 
@@ -79,26 +79,22 @@ function Consultation_03() {
     };
 
     return (
-      <li
-        onClick={deletIngredient}
-        key={ingredientObj.id}
-        className="ingredient"
-      >
+      <IngredientComponent onClick={deletIngredient} key={ingredientObj.id}>
         {ingredientObj.value}
-      </li>
+      </IngredientComponent>
     );
   });
 
   return (
-    <div className="consultation03-wrapper">
+    <PageWrapper>
       {/* <Button name="Add state" onClick={onAdd} />
       <Button name="Add simple let" onClick={onAdd2} /> */}
-      <div className="ingredient-buttons-container">{ingredientButtons}</div>
-      <div className="ingredients-container">
-        <p className="ingredients-title">Your order</p>
+      <ButtonContainer>{ingredientButtons}</ButtonContainer>
+      <IngredientsContainer>
+        <IngredientTitle>Your order</IngredientTitle>
         <ol>{orderList}</ol>
-      </div>
-    </div>
+      </IngredientsContainer>
+    </PageWrapper>
   );
 }
 

@@ -1,13 +1,12 @@
 import Button from "../Button/Button";
 import Input from "../Input/Input";
-
-import "./styles.css";
+import { InputComponent, LoginFormContainer, TitleComponent } from "./styles";
 
 function LoginForm() {
   return (
-    <form className="login-form-container">
-      <p className="title">Login form</p>
-      <div className="inputs-container">
+    <LoginFormContainer>
+      <TitleComponent>Login form</TitleComponent>
+      <InputComponent>
         <Input
           id="login-email"
           label="Email"
@@ -21,9 +20,9 @@ function LoginForm() {
           name="password"
           type="password"
         />
-      </div>
+      </InputComponent>
       <Button onClick={() => {}} type="submit" name="Login" />
-    </form>
+    </LoginFormContainer>
   );
 }
 
