@@ -4,12 +4,14 @@ import { InputComponent, LabelControl, PageWrapper } from "./styles";
 
 function Input({
   disabled = false,
-  error,
+  error = undefined,
   id,
   name,
   type = "text",
   placeholder,
   label,
+  value,
+  onChange,
 }: InputProps) {
   return (
     <PageWrapper>
@@ -21,6 +23,8 @@ function Input({
         name={name}
         type={type}
         placeholder={placeholder}
+        value={value}
+        onChange={onChange}
       ></InputComponent>
     </PageWrapper>
   );

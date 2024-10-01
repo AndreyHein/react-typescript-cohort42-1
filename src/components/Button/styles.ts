@@ -4,7 +4,6 @@ import { colors } from "styles/colors";
 
 interface ButtonComponentStyleProps {
   $isDeleteVariant: boolean;
-  disabled: boolean;
 }
 
 export const ButtonComponent = styled.button<ButtonComponentStyleProps>`

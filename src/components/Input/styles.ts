@@ -3,7 +3,6 @@ import { colors } from "styles/colors";
 
 interface InputComponentStyleProps {
   $error: undefined | string;
-  disabled: boolean;
 }
 
 export const PageWrapper = styled.div`
@@ -20,9 +19,17 @@ export const LabelControl = styled.label`
 export const InputComponent = styled.input<InputComponentStyleProps>`
   width: 100%;
   height: 50px;
-  background-color: ${({ disabled }) => disabled && colors.DISABLED};
-  border: 2px solid
-    ${({ $error }) => ($error != undefined && colors.ERROR)};
+  border: ${({ $error, disabled }) => {
+    if (disabled) {
+      return `1px solid ${colors.DISABLED}`;
+    } else {
+      if ($error !== undefined) {
+        return `2px solid ${colors.ERROR}`;
+      } else {
+        return "1px solid #3f3f3f";
+      }
+    }
+  }};
   border-radius: 4px;
   padding: 12px;
   outline: none;
