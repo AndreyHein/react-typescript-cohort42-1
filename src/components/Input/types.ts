@@ -1,4 +1,4 @@
-import { HTMLInputTypeAttribute } from "react";
+import { HTMLInputTypeAttribute, ChangeEvent } from "react";
 
 export interface InputProps {
   disabled?: boolean;
@@ -9,5 +9,5 @@ export interface InputProps {
   placeholder: string;
   label?: string;
   value?:any
-  onChange?:any
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
