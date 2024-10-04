@@ -3,3 +3,7 @@ export interface Uni {
     name:string
     province:string
 }
+
+export interface UniversityListProps {
+    unis: Uni[]; 
+  };
