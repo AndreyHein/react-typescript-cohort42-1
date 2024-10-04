@@ -1,11 +1,19 @@
+import { useState } from "react";
+import { Uni } from "./types";
+
 export const fetchUni = async (country: string) => {
   const URL_UNI: string = "http://universities.hipolabs.com/search?country=";
 
-  const response = await fetch(URL_UNI +`${country}`);
+  const response = await fetch(URL_UNI + `${country}`);
   const result = await response.json();
+
   if (response.ok) {
-    return (`${result.web_pages} ${result.name}${result.province}`);
+    if (result.length === 0) {
+      return { error: "No universities found" };
+    } else {
+      return { data: result.slice(0, 15) };
+    }
   } else {
-    return ("Some Network Error");
+    return { error: "Some Network Error" };
   }
 };
