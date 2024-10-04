@@ -1,9 +1,13 @@
 export interface Uni {
-    web_pages:string
-    name:string
-    province:string
+  web_pages: string[];
+  name: string;
+  province: string;
 }
 
 export interface UniversityListProps {
-    unis: Uni[]; 
-  };
+  unis: Uni[];
+}
+
+export interface ErrorMessageProps {
+  message: string;
+}
