@@ -26,6 +26,8 @@ function Lesson_10() {
   const getUni = async () => {
     setUni(undefined);
     setError(undefined);
+
+    
   };
   return;
   <PageWrapper>
