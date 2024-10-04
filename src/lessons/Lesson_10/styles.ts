@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+
 import { colors } from "styles/colors";
 
 export const PageWrapper = styled.div`
@@ -20,26 +21,19 @@ export const SearchField = styled.div`
   margin-bottom: 16px;
 `;
 
-export const ButtonComponent = styled.div`
+export const ButtonComponent = styled.button`
 margin-bottom: 16px;
-`;
-
-export const CardComponent = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  gap: 10px;
-  width: 600px;
-  min-height: 400px;
-  padding: 30px;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: white;
 `;
 
 export const ErrorComponent = styled.p`
   color: red;
   font-weight: bold;
+`;
+
+
+export const CardComponent = styled.div`
+font-size: 24px;
+font-weight: bold;
 `;
 
 export const CardItem = styled.div`
