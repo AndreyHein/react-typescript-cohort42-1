@@ -11,6 +11,7 @@ import {
   SearchField,
   ButtonComponent,
   CardComponent,
+  CardItem,
 } from "./styles";
 import { Uni } from "./types";
 import { fetchUni } from "./fetchUni";
@@ -36,6 +37,13 @@ function Lesson_10() {
       setUni(result.data);
     }
   };
+
+  const onReset = () => {
+    setUni(undefined);
+    setError(undefined);
+    setInputValue("");
+  };
+
   return (
     <PageWrapper>
       <Form>
@@ -45,17 +53,26 @@ function Lesson_10() {
             onChange={onChangeValue}
             name="search"
             label="Country"
-            placeholder="Enter Country for searching universities"
+            placeholder="Enter country for searching universities"
             id="input-search"
           />
         </SearchField>
         <ButtonComponent>
           <Button name="Get Universities" onClick={getUni} />
         </ButtonComponent>
-        <CardComponent>
-          {uni && <UniversityList unis={uni} />}
-          {error && <ErrorMessage message={error} />}
-        </CardComponent>
+        {uni && (
+            <UniversityList unis={uni} />
+        )}
+        {error && (
+          <CardComponent>
+            <CardItem>
+              <ErrorMessage message={error} />
+            </CardItem>
+          </CardComponent>
+        )}
+        <ButtonComponent>
+          <Button name="Reset Results" onClick={onReset} />
+        </ButtonComponent>
       </Form>
     </PageWrapper>
   );
