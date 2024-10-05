@@ -1,23 +1,16 @@
-import { useState, useEffect } from "react";
-
 export const fetchUni = async (country: string) => {
-  const [uni, setUni] = useState<string | undefined>(undefined);
-  const [error, setError] = useState<string | undefined>(undefined);
   const URL_UNI: string = "http://universities.hipolabs.com/search?country=";
 
-  const getUni = async () => {
-    setUni(undefined);
-    setError(undefined);
+  const response = await fetch(URL_UNI + `${country}`);
+  const result = await response.json();
 
-    const response = await fetch(URL_UNI + `${country}`);
-    const result = await response.json();
-    if (response.ok) {
-      setUni(`${result.web_pages} ${result.name}${result.country}`);
+  if (response.ok) {
+    if (result.length === 0) {
+      return { error: "No universities found" };
     } else {
-      setError("Some Network Error");
+      return { data: result.slice(0, 15) };
     }
-  };
-  useEffect(() => {
-    getUni();
-  }, []);
+  } else {
+    return { error: "Some Network Error" };
+  }
 };

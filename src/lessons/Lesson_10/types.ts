@@ -5,5 +5,9 @@ export interface Uni {
 }
 
 export interface UniversityListProps {
-    unis: Uni[]; 
-  };
+  unis: Uni[];
+}
+
+export interface ErrorMessageProps {
+  message: string;
+}
