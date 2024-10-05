@@ -1,17 +1,18 @@
 import { CardComponent, CardItem } from "./styles";
-import { Uni, UniversityListProps } from "./types";
+import { Uni, UniversityListProps} from "./types";
+import {v4} from "uuid";
 
-export function UniversityList({ unis }: UniversityListProps) {
-  if (unis.length === 0) {
-    return "No universities found";
-  }
+function UniversityList({ unis }: UniversityListProps) {
+//   if (unis.length === 0) {
+//     return ("No universities found");
+//   }
 
-  const unisList = unis.map((uni: Uni) => {
+  const unisList = unis.slice(0,15).map((uni: Uni) => {
     return (
-      <CardComponent>
+      <CardComponent key={v4()}>
         <CardItem>Website:{uni.web_pages}</CardItem>
         <CardItem>Name:{uni.name}</CardItem>
-        <CardItem>Province:{uni.province}</CardItem>
+        <CardItem>Country:{uni.country}</CardItem>
       </CardComponent>
     );
   });

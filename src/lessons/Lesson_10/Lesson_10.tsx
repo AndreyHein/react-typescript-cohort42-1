@@ -7,7 +7,7 @@
 // } from "./styles";
 
 import { Uni } from "./types";
-import {fetchUni} from "./fetchUni"
+import { fetchUni } from "./fetchUni";
 
 import { useState, useEffect, ChangeEvent } from "react";
 import Input from "components/Input/Input";
@@ -15,8 +15,9 @@ import Button from "components/Button/Button";
 import UniversityList from "./UniversityList";
 
 function Lesson_10() {
-
-  const [uni, setUni] = useState<Uni[] | undefined>(undefined);
+  // const [uni, setUni] = useState<Uni[] | undefined>(undefined);
+  // const [error, setError] = useState<string | undefined>(undefined);
+  const [unis, setUnis] = useState<Uni[]>([]);
   const [error, setError] = useState<string | undefined>(undefined);
   const [inputValue, setInputValue] = useState<string>("");
 
@@ -25,12 +26,26 @@ function Lesson_10() {
   };
 
   const getUni = async () => {
-    setUni(undefined);
+    setUnis([]);
     setError(undefined);
-  };
-  return
 
-  
+    const result = await fetchUni(inputValue);
+    //   if (result === "") {
+    //     setError(result);
+    //   } else {
+    //     setUni(result);
+    //   }
+    // };
+    useEffect(() => {
+      getUni();
+    }, [inputValue]);
+  };
+  return (
+    <>
+      {/* {uni && <UniversityList unis={uni} />} */}
+      {/* {error && <ErrorMessage message={error} />} */}
+    </>
+  );
   // <PageWrapper>
   //   <Form>
   //     <SearchField>

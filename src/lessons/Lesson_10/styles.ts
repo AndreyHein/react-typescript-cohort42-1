@@ -16,3 +16,7 @@ export const CardItem = styled.div`
   font-size: 24px;
   font-weight: bold;
 `;
+export const Text = styled.p`
+  font-size: 20px;
+  color: black;
+`;
