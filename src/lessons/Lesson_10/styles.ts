@@ -41,6 +41,7 @@ export const CardComponent = styled.div`
 `;
 
 export const ErrorComponent = styled.p`
+  font-size: 32px;
   color: red;
   font-weight: bold;
   text-align: center;

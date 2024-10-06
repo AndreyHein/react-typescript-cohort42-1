@@ -2,16 +2,15 @@ import { useState, ChangeEvent } from "react";
 
 import Input from "components/Input/Input";
 import Button from "components/Button/Button";
+import Modal from "components/Modal/Modal";
 import UniversityList from "./UniversityList";
-import ErrorMessage from "./ErrorMessage";
 
 import {
   PageWrapper,
   Form,
   SearchField,
   ButtonComponent,
-  CardComponent,
-  CardItem,
+  ErrorComponent,
 } from "./styles";
 import { Uni } from "./types";
 import { fetchUni } from "./fetchUni";
@@ -29,6 +28,11 @@ function Lesson_10() {
     setUni(undefined);
     setError(undefined);
 
+    if (!inputValue.trim()) {
+      alert("Please enter a country name!");
+      return;
+    }
+
     const result = await fetchUni(inputValue);
 
     if (result.error) {
@@ -42,6 +46,10 @@ function Lesson_10() {
     setUni(undefined);
     setError(undefined);
     setInputValue("");
+  };
+
+  const closeModal = () => {
+    setError(undefined);
   };
 
   return (
@@ -60,19 +68,15 @@ function Lesson_10() {
         <ButtonComponent>
           <Button name="Get Universities" onClick={getUni} />
         </ButtonComponent>
-        {uni && (
-            <UniversityList unis={uni} />
-        )}
-        {error && (
-          <CardComponent>
-            <CardItem>
-              <ErrorMessage message={error} />
-            </CardItem>
-          </CardComponent>
-        )}
         <ButtonComponent>
           <Button name="Reset Results" onClick={onReset} />
         </ButtonComponent>
+        {uni && <UniversityList unis={uni} />}
+        {error && (
+          <Modal closeModal={closeModal}>
+            <ErrorComponent>{error}</ErrorComponent>
+          </Modal>
+        )}
       </Form>
     </PageWrapper>
   );
