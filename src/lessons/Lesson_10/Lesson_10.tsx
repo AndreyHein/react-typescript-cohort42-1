@@ -1,19 +1,20 @@
+import { useState, ChangeEvent } from "react";
+
+import Input from "components/Input/Input";
+import Button from "components/Button/Button";
+import UniversityList from "./UniversityList";
+import ErrorMessage from "./ErrorMessage";
+
 import {
   PageWrapper,
   Form,
   SearchField,
   ButtonComponent,
   CardComponent,
+  CardItem,
 } from "./styles";
-
 import { Uni } from "./types";
 import { fetchUni } from "./fetchUni";
-
-import { useState, ChangeEvent } from "react";
-import Input from "components/Input/Input";
-import Button from "components/Button/Button";
-import UniversityList from "./UniversityList";
-import ErrorMessage from "./ErrorMessage";
 
 function Lesson_10() {
   const [uni, setUni] = useState<Uni[] | undefined>(undefined);
@@ -29,12 +30,20 @@ function Lesson_10() {
     setError(undefined);
 
     const result = await fetchUni(inputValue);
+
     if (result.error) {
       setError(result.error);
     } else if (result.data) {
       setUni(result.data);
     }
   };
+
+  const onReset = () => {
+    setUni(undefined);
+    setError(undefined);
+    setInputValue("");
+  };
+
   return (
     <PageWrapper>
       <Form>
@@ -44,17 +53,26 @@ function Lesson_10() {
             onChange={onChangeValue}
             name="search"
             label="Country"
-            placeholder="Enter Country for searching universities"
+            placeholder="Enter country for searching universities"
             id="input-search"
           />
         </SearchField>
         <ButtonComponent>
           <Button name="Get Universities" onClick={getUni} />
         </ButtonComponent>
-        <CardComponent>
-          {uni && <UniversityList unis={uni} />}
-          {error && <ErrorMessage message={error} />}
-        </CardComponent>
+        {uni && (
+            <UniversityList unis={uni} />
+        )}
+        {error && (
+          <CardComponent>
+            <CardItem>
+              <ErrorMessage message={error} />
+            </CardItem>
+          </CardComponent>
+        )}
+        <ButtonComponent>
+          <Button name="Reset Results" onClick={onReset} />
+        </ButtonComponent>
       </Form>
     </PageWrapper>
   );
