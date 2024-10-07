@@ -32,7 +32,7 @@ export const CardComponent = styled.div`
   flex-direction: column;
   gap: 10px;
   width: 400px;
-  min-height: 400px;
+  min-height: 250px;
   padding: 30px;
   border: 1px solid black;
   border-radius: 10px;
