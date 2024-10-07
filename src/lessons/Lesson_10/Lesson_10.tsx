@@ -7,9 +7,15 @@ import UniversityList from "./UniversityList";
 
 import {
   PageWrapper,
-  Form,
-  SearchField,
+  HEADER,
+  H1,
+  H2,
+  Container,
+  SearchForm,
+  InputComponent,
+  ButtonsContainer,
   ButtonComponent,
+  CardComponent,
   ErrorComponent,
 } from "./styles";
 import { Uni } from "./types";
@@ -54,30 +60,42 @@ function Lesson_10() {
 
   return (
     <PageWrapper>
-      <Form>
-        <SearchField>
-          <Input
-            value={inputValue}
-            onChange={onChangeValue}
-            name="search"
-            label="Country"
-            placeholder="Enter country for searching universities"
-            id="input-search"
-          />
-        </SearchField>
-        <ButtonComponent>
-          <Button name="Get Universities" onClick={getUni} />
-        </ButtonComponent>
-        <ButtonComponent>
-          <Button name="Reset Results" onClick={onReset} />
-        </ButtonComponent>
-        {uni && <UniversityList unis={uni} />}
-        {error && (
-          <Modal closeModal={closeModal}>
-            <ErrorComponent>{error}</ErrorComponent>
-          </Modal>
-        )}
-      </Form>
+      <HEADER>
+        <H1>Universities Worldwide</H1>
+        <H2>
+          Welcome to the searchable database of Universities around the world!
+        </H2>
+      </HEADER>
+      <Container>
+        <SearchForm>
+          <InputComponent>
+            <Input
+              value={inputValue}
+              onChange={onChangeValue}
+              name="search"
+              label=""
+              placeholder="Select the country in which you would like to study"
+              id="input-search"
+            />
+          </InputComponent>
+          <ButtonsContainer>
+            <ButtonComponent>
+              <Button name="Search" onClick={getUni} />
+            </ButtonComponent>
+            <ButtonComponent>
+              <Button name="Reset Results" onClick={onReset} />
+            </ButtonComponent>
+          </ButtonsContainer>
+        </SearchForm>
+        <CardComponent>
+          {uni && <UniversityList unis={uni} />}
+          {error && (
+            <Modal closeModal={closeModal}>
+              <ErrorComponent>{error}</ErrorComponent>
+            </Modal>
+          )}
+        </CardComponent>
+      </Container>
     </PageWrapper>
   );
 }

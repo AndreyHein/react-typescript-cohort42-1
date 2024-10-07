@@ -4,40 +4,131 @@ import { colors } from "styles/colors";
 
 export const PageWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: top;
   align-items: center;
   flex: 1;
   padding: 40px;
-  background-color: ${colors.PRIMARY};
+  background-color: ${colors.BACKGROUND_WHITE};
 `;
 
-export const Form = styled.form`
+export const HEADER = styled.header`
   display: flex;
   flex-direction: column;
-  width: 400px;
+  gap: 20px;
+  padding: 20px;
 `;
 
-export const SearchField = styled.div`
-  margin-bottom: 16px;
+export const H1 = styled.p`
+  font-size: 24px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
+`;
+
+export const H2 = styled.p`
+  font-size: 18px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: normal;
+  font-style: normal;
+  text-align: center;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 1420px;
+  gap: 20px;
+`;
+
+export const SearchForm = styled.form`
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 650px;
+  gap: 20px;
+  padding: 25px;
+  /* border-bottom: 1px solid grey; */
+`;
+
+export const InputComponent = styled.div`
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0.5px 2px 7px grey;
+`;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
 `;
 
 export const ButtonComponent = styled.div`
-  margin-bottom: 16px;
+  width: 20%;
+  min-width: 200px;
+  padding: 0px 0px;
 `;
 
 export const CardComponent = styled.div`
+  max-width: 1420px;
   display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 0px auto;
+  padding: 25px 0px;
+`;
+
+export const CardItem = styled.div`
+  position: relative;
+  border: 1px solid grey;
+  border-radius: 5px;
+  box-shadow: 1px 2px 7px grey;
+  padding: 20px;
+  height: 200px;
+  width: 450px;
   gap: 10px;
-  width: 400px;
-  min-height: 250px;
-  padding: 30px;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: white;
-  margin-bottom: 16px;
+  color: black;
+`;
+
+export const UniName = styled.p`
+  font-size: 24px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-style: normal;
+  text-align: left;
+  padding-bottom: 10px;
+`;
+
+export const StateName = styled.p`
+  font-size: 18px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: normal;
+  font-style: normal;
+  text-align: left;
+  padding-bottom: 10px;
+`;
+
+export const Country = styled.p`
+  font-size: 18px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: normal;
+  font-style: normal;
+  text-align: left;
+  padding-bottom: 10px;
+`;
+
+export const Domain = styled.a`
+  font-size: 18px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: normal;
+  font-style: normal;
+  text-align: left;
+  padding-bottom: 10px;
 `;
 
 export const ErrorComponent = styled.p`
@@ -45,9 +136,4 @@ export const ErrorComponent = styled.p`
   color: red;
   font-weight: bold;
   text-align: center;
-`;
-
-export const CardItem = styled.div`
-  font-size: 24px;
-  font-weight: bold;
 `;
