@@ -80,12 +80,15 @@ export const ButtonComponent = styled.div`
   @media (max-width: 540px) {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
     width: 100%;
   }
   width: 20%;
   min-width: 200px;
   padding: 0px 0px;
+  border-radius: 4px;
+
+  &:hover {
+    box-shadow: 1px 2px 10px ${colors.PRIMARY_BLUE};
 `;
 
 export const CardComponent = styled.div`
@@ -111,6 +114,9 @@ export const CardItem = styled.div`
   width: 450px;
   gap: 10px;
   color: ${colors.TEXT_BLUE};
+  &:hover {
+    box-shadow: 1px 2px 10px ${colors.PRIMARY_BLUE};
+  }
 `;
 
 export const UniName = styled.p`
