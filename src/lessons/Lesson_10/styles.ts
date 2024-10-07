@@ -25,6 +25,7 @@ export const H1 = styled.p`
   font-weight: bold;
   font-style: normal;
   text-align: center;
+  color: ${colors.TEXT_BLUE};
 `;
 
 export const H2 = styled.p`
@@ -33,6 +34,7 @@ export const H2 = styled.p`
   font-weight: normal;
   font-style: normal;
   text-align: center;
+  color: ${colors.TEXT_BLUE};
 `;
 
 export const Container = styled.div`
@@ -43,22 +45,29 @@ export const Container = styled.div`
 `;
 
 export const SearchForm = styled.form`
+  @media (max-width: 650px) {
+    width: 100%;
+  }
   margin: auto;
   display: flex;
   flex-direction: column;
   width: 650px;
   gap: 20px;
-  padding: 25px;
-  /* border-bottom: 1px solid grey; */
+  padding: 25px 0px;
 `;
 
 export const InputComponent = styled.div`
   width: 100%;
   border-radius: 4px;
-  box-shadow: 0.5px 2px 7px grey;
+  box-shadow: 0.5px 2px 7px ${colors.SHADOW_BLUE};
 `;
 
 export const ButtonsContainer = styled.div`
+  @media (max-width: 540px) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -68,6 +77,12 @@ export const ButtonsContainer = styled.div`
 `;
 
 export const ButtonComponent = styled.div`
+  @media (max-width: 540px) {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 100%;
+  }
   width: 20%;
   min-width: 200px;
   padding: 0px 0px;
@@ -84,15 +99,18 @@ export const CardComponent = styled.div`
 `;
 
 export const CardItem = styled.div`
+  @media (max-width: 650px) {
+    width: 100%;
+  }
   position: relative;
   border: 1px solid grey;
   border-radius: 5px;
-  box-shadow: 1px 2px 7px grey;
+  box-shadow: 1px 2px 7px ${colors.SHADOW_BLUE};
   padding: 20px;
   height: 200px;
   width: 450px;
   gap: 10px;
-  color: black;
+  color: ${colors.TEXT_BLUE};
 `;
 
 export const UniName = styled.p`
@@ -122,7 +140,20 @@ export const Country = styled.p`
   padding-bottom: 10px;
 `;
 
-export const Domain = styled.a`
+export const Domain = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  font-size: 18px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: normal;
+  font-style: normal;
+  text-align: left;
+  padding-bottom: 10px;
+`;
+
+export const WebSiteLink = styled.a`
   font-size: 18px;
   font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: normal;
