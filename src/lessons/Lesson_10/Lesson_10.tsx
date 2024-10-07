@@ -1,19 +1,30 @@
-import {
-  PageWrapper,
-  Form,
-  SearchField,
-  ButtonComponent,
-  CardComponent,
-} from "./styles";
-
-import { Uni } from "./types";
-import { fetchUni } from "./fetchUni";
-
 import { useState, ChangeEvent } from "react";
+
 import Input from "components/Input/Input";
 import Button from "components/Button/Button";
+import Modal from "components/Modal/Modal";
 import UniversityList from "./UniversityList";
-import ErrorMessage from "./ErrorMessage";
+
+import {
+  PageWrapper,
+  HEADER,
+  H1,
+  H2,
+  Container,
+  SearchForm,
+  InputComponent,
+  ButtonsContainer,
+  ButtonComponent,
+  CardComponent,
+  CardItem,
+  UniName,
+  StateName,
+  Country,
+  Domain,
+  ErrorComponent,
+} from "./styles";
+import { Uni } from "./types";
+import { fetchUni } from "./fetchUni";
 
 function Lesson_10() {
   const [uni, setUni] = useState<Uni[] | undefined>(undefined);
@@ -28,34 +39,68 @@ function Lesson_10() {
     setUni(undefined);
     setError(undefined);
 
+    if (!inputValue.trim()) {
+      alert("Please enter a country name!");
+      return;
+    }
+
     const result = await fetchUni(inputValue);
+
     if (result.error) {
       setError(result.error);
     } else if (result.data) {
       setUni(result.data);
     }
   };
+
+  const onReset = () => {
+    setUni(undefined);
+    setError(undefined);
+    setInputValue("");
+  };
+
+  const closeModal = () => {
+    setError(undefined);
+  };
+
   return (
     <PageWrapper>
-      <Form>
-        <SearchField>
-          <Input
-            value={inputValue}
-            onChange={onChangeValue}
-            name="search"
-            label="Country"
-            placeholder="Enter Country for searching universities"
-            id="input-search"
-          />
-        </SearchField>
-        <ButtonComponent>
-          <Button name="Get Universities" onClick={getUni} />
-        </ButtonComponent>
+      <HEADER>
+        <H1>Universities Worldwide</H1>
+        <H2>
+          Welcome to the searchable database of Universities around the world!
+        </H2>
+      </HEADER>
+      <Container>
+        <SearchForm>
+          <InputComponent>
+            <Input
+              value={inputValue}
+              onChange={onChangeValue}
+              name="search"
+              label=""
+              placeholder="Select the country in which you would like to study"
+              id="input-search"
+            />
+          </InputComponent>
+          <ButtonsContainer>
+            <ButtonComponent>
+              <Button name="Search" onClick={getUni} />
+            </ButtonComponent>
+            <ButtonComponent>
+              <Button name="Reset Results" onClick={onReset} />
+            </ButtonComponent>
+          </ButtonsContainer>
+        </SearchForm>
         <CardComponent>
           {uni && <UniversityList unis={uni} />}
-          {error && <ErrorMessage message={error} />}
+          {error && (
+            <Modal closeModal={closeModal}>
+              <ErrorComponent>{error}</ErrorComponent>
+            </Modal>
+          )}
         </CardComponent>
-      </Form>
+      </Container>
     </PageWrapper>
   );
 }
