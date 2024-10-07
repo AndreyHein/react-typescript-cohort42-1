@@ -16,11 +16,6 @@ import {
   ButtonsContainer,
   ButtonComponent,
   CardComponent,
-  CardItem,
-  UniName,
-  StateName,
-  Country,
-  Domain,
   ErrorComponent,
 } from "./styles";
 import { Uni } from "./types";

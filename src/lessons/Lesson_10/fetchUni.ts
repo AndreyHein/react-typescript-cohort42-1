@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { Uni } from "./types";
-
 export const fetchUni = async (country: string) => {
   const URL_UNI: string = "http://universities.hipolabs.com/search?country=";
 

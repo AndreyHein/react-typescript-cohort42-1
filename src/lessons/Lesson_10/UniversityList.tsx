@@ -1,6 +1,7 @@
 import { v4 } from "uuid";
 
-import { CardComponent, CardItem, Domain, UniName, Country } from "./styles";
+import { CardItem, Domain, UniName, Country } from "./styles";
+
 import { Uni, UniversityListProps } from "./types";
 
 export function UniversityList({ unis }: UniversityListProps) {
@@ -8,7 +9,6 @@ export function UniversityList({ unis }: UniversityListProps) {
     <>
       {unis.map((uni: Uni) => (
         <CardItem key={v4()}>
-          
           <UniName>{uni.name}</UniName>
           {uni.country && <Country>Country: {uni.country}</Country>}
           {uni.web_pages.map((webPage) => (
