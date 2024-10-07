@@ -89,6 +89,7 @@ export const ButtonComponent = styled.div`
 
   &:hover {
     box-shadow: 1px 2px 10px ${colors.PRIMARY_BLUE};
+  }
 `;
 
 export const CardComponent = styled.div`
