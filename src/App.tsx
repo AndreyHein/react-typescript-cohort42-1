@@ -12,6 +12,7 @@ import Lesson_07 from "lessons/Lesson_07/Lesson_07";
 import Lesson_08 from "lessons/Lesson_08/Lesson_08";
 import Lesson_09 from "lessons/Lesson_09/Lesson_09";
 import Lesson_10 from "lessons/Lesson_10/Lesson_10";
+import Lesson_11 from "lessons/Lesson_11/Lesson_11";
 
 //CONSULTATIONS
 import Consultation_03 from "consultations/Consultation_03/Consultation_03";
@@ -25,7 +26,8 @@ function App() {
       {/* <Lesson_07 /> */}
       {/* <Lesson_08 /> */}
       {/* <Lesson_09 /> */}
-      <Lesson_10 />
+      {/* <Lesson_10 /> */}
+      <Lesson_11 />
       {/* HOMEWORKS */}
       {/* <Homework_06 /> */}
       {/* <Homework_07 /> */}
