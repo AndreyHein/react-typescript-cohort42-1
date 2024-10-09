@@ -8,6 +8,6 @@ export interface InputProps {
   type?: HTMLInputTypeAttribute | undefined;
   placeholder: string;
   label?: string;
-  value?:any
+  value?:string
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }

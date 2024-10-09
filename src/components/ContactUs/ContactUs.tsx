@@ -5,32 +5,29 @@ import Input from "components/Input/Input";
 import Button from "components/Button/Button";
 
 import { InputComponent, TitleComponent, ContactUsContainer } from "./styles";
-
-interface ContactValues {
-  name: string;
-  phone: string;
-  email: string;
-}
+import { ContactValues, CONTACT_US_FORM_NAMES } from "./types";
 
 function ContactUs() {
   const validationSchema = Yup.object().shape({
-    name: Yup.string()
+    [CONTACT_US_FORM_NAMES.FULL_NAME]: Yup.string()
+      .required("Fullname field is required")
       .min(7, "The minimum name length is 3")
-      .max(30, "The max name length is 50"),
-    phone: Yup.string()
+      .max(30, "The maximum name length is 50"),
+    [CONTACT_US_FORM_NAMES.PHONE]: Yup.string()
+      .required("Phone field is required")
       .min(7, "The minimum phone length is 4")
-      .max(30, "The max phone length is 20"),
-    email: Yup.string()
+      .max(30, "The maximum phone length is 20"),
+    [CONTACT_US_FORM_NAMES.EMAIL]: Yup.string()
       .email("Invalid Email format")
       .min(7, "The minimum email length is 6")
-      .max(30, "The max email length is 60"),
+      .max(30, "The maximum email length is 60"),
   });
 
   const formik = useFormik({
     initialValues: {
-      name: "",
-      phone: "",
-      email: "",
+      [CONTACT_US_FORM_NAMES.FULL_NAME]: "",
+      [CONTACT_US_FORM_NAMES.PHONE]: "",
+      [CONTACT_US_FORM_NAMES.EMAIL]: "",
     } as ContactValues,
     validationSchema,
     validateOnChange: false,
@@ -44,18 +41,18 @@ function ContactUs() {
       <InputComponent>
         <Input
           id="id-name"
-          label="Full Name"
+          label="Full Name*"
           placeholder="Your full name"
-          name="name"
+          name={CONTACT_US_FORM_NAMES.FULL_NAME}
           onChange={formik.handleChange}
-          value={formik.values.name}
-          error={formik.errors.name}
+          value={formik.values.fullName}
+          error={formik.errors.fullName}
         />
         <Input
           id="id-phone"
-          label="Phone"
+          label="Phone*"
           placeholder="Your phone number"
-          name="phone"
+          name={CONTACT_US_FORM_NAMES.PHONE}
           onChange={formik.handleChange}
           value={formik.values.phone}
           error={formik.errors.phone}
@@ -64,7 +61,7 @@ function ContactUs() {
           id="id-email"
           label="Email"
           placeholder="Your email"
-          name="email"
+          name={CONTACT_US_FORM_NAMES.EMAIL}
           onChange={formik.handleChange}
           value={formik.values.email}
           error={formik.errors.email}
