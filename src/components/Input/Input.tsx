@@ -1,32 +1,37 @@
 import { InputProps } from "./types";
-
-import { InputComponent, LabelControl, PageWrapper } from "./styles";
+import {
+  InputWrapper,
+  InputComponent,
+  InputLabel,
+  ErrorContainer,
+} from "./styles";
 
 function Input({
-  disabled = false,
-  error = undefined,
   id,
   name,
   type = "text",
   placeholder,
   label,
+  disabled = false,
+  error = undefined,
   value,
   onChange,
 }: InputProps) {
   return (
-    <PageWrapper>
-      <LabelControl htmlFor={id}>{label}</LabelControl>
+    <InputWrapper>
+      <InputLabel htmlFor={id}>{label}</InputLabel>
       <InputComponent
-        $error={error}
-        disabled={disabled}
         id={id}
         name={name}
         type={type}
         placeholder={placeholder}
+        disabled={disabled}
+        $error={error}
         value={value}
         onChange={onChange}
-      ></InputComponent>
-    </PageWrapper>
+      />
+      <ErrorContainer>{error}</ErrorContainer>
+    </InputWrapper>
   );
 }
 

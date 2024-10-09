@@ -1,17 +1,18 @@
 import styled from "@emotion/styled";
+
 import { colors } from "styles/colors";
 
-interface InputComponentStyleProps {
-  $error: undefined | string;
+export interface InputComponentStyleProps {
+  $error?: string | undefined;
 }
 
-export const PageWrapper = styled.div`
+export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
 `;
 
-export const LabelControl = styled.label`
+export const InputLabel = styled.label`
   font-size: 16px;
   color: hsl(0, 0%, 44%);
 `;
@@ -21,7 +22,7 @@ export const InputComponent = styled.input<InputComponentStyleProps>`
   height: 50px;
   border: ${({ $error, disabled }) => {
     if (disabled) {
-      return `1px solid ${colors.DISABLED}`;
+      return `1px solid ${colors.GREY}`;
     } else {
       if ($error !== undefined) {
         return `2px solid ${colors.ERROR}`;
@@ -38,4 +39,9 @@ export const InputComponent = styled.input<InputComponentStyleProps>`
     color: #6f6f6f;
     font-size: 16px;
   }
+`;
+
+export const ErrorContainer = styled.p`
+  font-size: 18px;
+  color: ${colors.ERROR};
 `;
