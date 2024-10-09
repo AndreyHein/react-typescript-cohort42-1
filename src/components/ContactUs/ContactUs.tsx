@@ -6,6 +6,12 @@ import Button from "components/Button/Button";
 
 import { InputComponent, TitleComponent, ContactUsContainer } from "./styles";
 
+interface ContactValues {
+  name: string;
+  phone: string;
+  email: string;
+}
+
 function ContactUs() {
   const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -25,10 +31,10 @@ function ContactUs() {
       name: "",
       phone: "",
       email: "",
-    },
-    validationSchema: validationSchema,
+    } as ContactValues,
+    validationSchema,
     validateOnChange: false,
-    onSubmit: (values) => {
+    onSubmit: (values: ContactValues) => {
       console.log(values);
     },
   });
