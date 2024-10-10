@@ -1,4 +1,13 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import GlobalStyles from "styles/GlobalStyles";
+
+import Layout from "components/Lauout/Lauout";
+import Home from "pages/UserApp/Home/Home";
+import Login from "pages/UserApp/Login/Login";
+import ContactUsPage from "pages/UserApp/ContactUsPage/ContactUsPage";
+import About from "pages/UserApp/About/About";
+
+import { APP_ROUTES } from "./constants/routes";
 
 // HOMEWORKS
 import Homework_06 from "homeworks/Homework_06/Homework_06";
@@ -20,8 +29,16 @@ import Consultation_03 from "consultations/Consultation_03/Consultation_03";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyles />
+      <Layout>
+        <Routes>
+          <Route path={APP_ROUTES.HOME} element={<Home />} />
+          <Route path={APP_ROUTES.ABOUT} element={<About />} />
+          <Route path={APP_ROUTES.CONTACT_US} element={<ContactUsPage />} />
+          <Route path={APP_ROUTES.LOGIN} element={<Login />} />
+        </Routes>
+      </Layout>
       {/* LESSONS */}
       {/* <Lesson_06 /> */}
       {/* <Lesson_07 /> */}
@@ -34,10 +51,10 @@ function App() {
       {/* <Homework_07 /> */}
       {/* <Homework_08 /> */}
       {/* <Homework_09 /> */}
-      <Homework_11 />
+      {/* <Homework_11 /> */}
       {/* CONSULTATIONS */}
       {/* <Consultation_03 /> */}
-    </>
+    </BrowserRouter>
   );
 }
 
