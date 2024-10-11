@@ -41,6 +41,15 @@ function Layout({ children }: LayoutProps) {
               fontWeight: isActive ? "bold" : "normal",
               textDecoration: isActive ? "underline" : "none",
             })}
+            to={APP_ROUTES.CLIENTS}
+          >
+            Clients
+          </HeaderLink>
+          <HeaderLink
+            style={({ isActive }) => ({
+              fontWeight: isActive ? "bold" : "normal",
+              textDecoration: isActive ? "underline" : "none",
+            })}
             to={APP_ROUTES.CONTACT_US}
           >
             Contact Us
@@ -70,6 +79,7 @@ function Layout({ children }: LayoutProps) {
         <FooterLogo onClick={goToHomePage}>App Logo</FooterLogo>
         <FooterNav>
           <FooterLink to={APP_ROUTES.HOME}>Home</FooterLink>
+          <FooterLink to={APP_ROUTES.CLIENTS}>Clients</FooterLink>
           <FooterLink to={APP_ROUTES.CONTACT_US}>Contact Us</FooterLink>
           <FooterLink to={APP_ROUTES.ABOUT}>About</FooterLink>
           <FooterLink to={APP_ROUTES.LOGIN}>Login</FooterLink>
