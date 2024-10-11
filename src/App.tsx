@@ -3,9 +3,13 @@ import GlobalStyles from "styles/GlobalStyles";
 
 import Layout from "components/Lauout/Lauout";
 import Home from "pages/UserApp/Home/Home";
+import Clients from "pages/UserApp/Clients/Clients";
 import Login from "pages/UserApp/Login/Login";
 import ContactUsPage from "pages/UserApp/ContactUsPage/ContactUsPage";
 import About from "pages/UserApp/About/About";
+import Techcorp from "pages/UserApp/Clients/Techcorp/Techcorp";
+import Greenenergy from "pages/UserApp/Clients/Greenenergy/Greenenergy";
+import Healthplus from "pages/UserApp/Clients/Healthplus/Healthplus";
 
 import { APP_ROUTES } from "./constants/routes";
 
@@ -34,9 +38,23 @@ function App() {
       <Layout>
         <Routes>
           <Route path={APP_ROUTES.HOME} element={<Home />} />
+          <Route path={APP_ROUTES.CLIENTS} element={<Clients />} />
+          <Route
+            path={APP_ROUTES.CLIENTS + "/techcorp"}
+            element={<Techcorp />}
+          />
+          <Route
+            path={APP_ROUTES.CLIENTS + "/greenenergy"}
+            element={<Greenenergy />}
+          />
+          <Route
+            path={APP_ROUTES.CLIENTS + "/healthplus"}
+            element={<Healthplus />}
+          />
           <Route path={APP_ROUTES.ABOUT} element={<About />} />
           <Route path={APP_ROUTES.CONTACT_US} element={<ContactUsPage />} />
           <Route path={APP_ROUTES.LOGIN} element={<Login />} />
+          <Route path="*" element="Page Is Not Found"/>
         </Routes>
       </Layout>
       {/* LESSONS */}
