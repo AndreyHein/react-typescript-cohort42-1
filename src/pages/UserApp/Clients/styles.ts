@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const CompanyNav = styled.nav`
   display: flex;
@@ -8,7 +8,7 @@ export const CompanyNav = styled.nav`
   height: 100%;
 `;
 
-export const CompanyLink = styled(NavLink)`
+export const CompanyLink = styled(Link)`
   color: black;
   font-size: 20px;
   text-decoration: none;

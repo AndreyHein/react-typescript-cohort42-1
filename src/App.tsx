@@ -39,12 +39,22 @@ function App() {
         <Routes>
           <Route path={APP_ROUTES.HOME} element={<Home />} />
           <Route path={APP_ROUTES.CLIENTS} element={<Clients />} />
-          <Route path={APP_ROUTES.CLIENTS + "/techcorp"} element={<Techcorp />} />
-        <Route path={APP_ROUTES.CLIENTS + "/greenenergy"} element={<Greenenergy />} />
-        <Route path={APP_ROUTES.CLIENTS + "/healthplus"} element={<Healthplus />} />
+          <Route
+            path={APP_ROUTES.CLIENTS + "/techcorp"}
+            element={<Techcorp />}
+          />
+          <Route
+            path={APP_ROUTES.CLIENTS + "/greenenergy"}
+            element={<Greenenergy />}
+          />
+          <Route
+            path={APP_ROUTES.CLIENTS + "/healthplus"}
+            element={<Healthplus />}
+          />
           <Route path={APP_ROUTES.ABOUT} element={<About />} />
           <Route path={APP_ROUTES.CONTACT_US} element={<ContactUsPage />} />
           <Route path={APP_ROUTES.LOGIN} element={<Login />} />
+          <Route path="*" element="Page Is Not Found"/>
         </Routes>
       </Layout>
       {/* LESSONS */}
