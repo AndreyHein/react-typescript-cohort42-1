@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { APP_ROUTES } from "constants/routes";
 import { v4 } from "uuid";
+import { UserImg } from "assest";
 
 import { LayoutProps } from "./types";
 
@@ -12,6 +13,7 @@ import {
   HeaderLink,
   HeaderNav,
   HeaderLogo,
+  LogoImg,
   FooterLink,
   FooterLogo,
   FooterNav,
@@ -60,12 +62,16 @@ function Layout({ children }: LayoutProps) {
   return (
     <LayoutWrapper>
       <AppHeader>
-        <HeaderLogo onClick={goToHomePage}>App Logo</HeaderLogo>
+        <HeaderLogo onClick={goToHomePage}>
+          <LogoImg src={UserImg} alt="Logo" />
+        </HeaderLogo>
         <HeaderNav>{headerLinks}</HeaderNav>
       </AppHeader>
       <AppMain>{children}</AppMain>
       <AppFooter>
-        <FooterLogo onClick={goToHomePage}>App Logo</FooterLogo>
+        <FooterLogo onClick={goToHomePage}>
+          <LogoImg src={UserImg} alt="Logo" />
+        </FooterLogo>
         <FooterNav>{footerLinks}</FooterNav>
       </AppFooter>
     </LayoutWrapper>
