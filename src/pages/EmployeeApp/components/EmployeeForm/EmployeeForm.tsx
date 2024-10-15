@@ -11,7 +11,7 @@ import { useContext } from "react";
 import { EmployeeContext } from "pages/EmployeeApp/components/EmployeeLayout/EmployeeLayout";
 import { useNavigate } from "react-router-dom";
 function EmployeeForm() {
-  const { userData, setUserData } = useContext(EmployeeContext);
+  const { setUserData } = useContext(EmployeeContext);
 
   const navigate = useNavigate();
 
