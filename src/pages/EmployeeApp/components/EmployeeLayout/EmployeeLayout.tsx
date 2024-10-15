@@ -1,4 +1,5 @@
 import { LayoutProps } from "pages/EmployeeApp/types";
+import {EMPLOYEE_APP_ROUTES} from "constants/routes"
 
 import { useState, createContext } from "react";
 import {
@@ -10,12 +11,13 @@ import {
   AppMain,
 } from "./styles";
 
-export const EmployeeContex = createContext<any>({userData:undefined, setUserData:()=>{}})
+export const EmployeeContext = createContext<any>({userData:undefined, setUserData:()=>{}})
+
 function EmployeeLaout({ children }: LayoutProps) {
 
   const [userData, setUserData] = useState<any>(undefined)
   return (
-    <EmployeeContex.Provider value={{
+    <EmployeeContext.Provider value={{
       userData:userData, setUserData:setUserData
     }}>
     <LayoutWrapper>
@@ -27,7 +29,7 @@ function EmployeeLaout({ children }: LayoutProps) {
                 fontWeight: isActive ? "bold" : "normal",
                 textDecoration: isActive ? "underline" : "none",
               })}
-              to="/createEmloyee"
+              to={EMPLOYEE_APP_ROUTES.CREATE_EMPLOYEE}
             >
               Create Emloyee
             </HeaderLink>
@@ -37,7 +39,7 @@ function EmployeeLaout({ children }: LayoutProps) {
                 fontWeight: isActive ? "bold" : "normal",
                 textDecoration: isActive ? "underline" : "none",
               })}
-              to="/employees"
+              to={EMPLOYEE_APP_ROUTES.EMPLOYEES}
             >
               Employees
             </HeaderLink>
@@ -46,7 +48,7 @@ function EmployeeLaout({ children }: LayoutProps) {
       </AppHeader>
       <AppMain>{children}</AppMain>
     </LayoutWrapper>
-    </EmployeeContex.Provider>
+    </EmployeeContext.Provider>
   );
 }
 export default EmployeeLaout;

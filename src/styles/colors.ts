@@ -7,6 +7,7 @@ export interface Colors {
   ERROR: string;
   DISABLED: string;
   GREY: string;
+  WHITE: string;
 }
 
 export const colors: Colors = {
@@ -18,4 +19,5 @@ export const colors: Colors = {
   ERROR: "rgb(206, 44, 44)",
   DISABLED: "rgb(128, 128, 128)",
   GREY: "rgb(186, 186, 186)",
+  WHITE: "#FFFFFF",
 };
