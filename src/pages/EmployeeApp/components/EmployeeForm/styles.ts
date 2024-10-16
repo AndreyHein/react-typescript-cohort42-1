@@ -1,24 +1,23 @@
 import styled from "@emotion/styled";
+import { colors } from "styles/colors";
 
 export const EmployeeFormContainer = styled.form`
   display: flex;
   flex-direction: column;
-  width: 590px;
-  height: 592px;
-  /* max-height: fit-content; */
+  width: 90%;
+  max-width: 590px;
+  height: auto;
   border: 1px solid #000000;
-  padding: 60px;
-  border-radius: 4px;
-  background-color: white;
-  gap: 30px;
-  top: 238px;
-  left: 435px;
+  padding: 40px;
+  border-radius: 8px;
+  background-color: ${colors.WHITE};
+  gap: 40px;
+  box-sizing: border-box;
 `;
 
 export const InputsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 470px;
-  height: 372px;
-  gap: 20px;
+  width: 100%;
+  gap: 15px;
 `;

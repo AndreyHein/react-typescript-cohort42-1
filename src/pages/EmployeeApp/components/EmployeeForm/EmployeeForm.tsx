@@ -1,15 +1,16 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import {EMPLOYEE_APP_ROUTES} from "constants/routes"
 
 import Input from "components/Input/Input";
 import Button from "components/Button/Button";
+import { EmployeeContext } from "pages/EmployeeApp/components/EmployeeLayout/EmployeeLayout";
+import { EMPLOYEE_APP_ROUTES } from "constants/routes";
 
 import { EmployeeFormContainer, InputsContainer } from "./styles";
 import { EMPLOYEE_FORM_NAMES } from "./types";
-import { useContext } from "react";
-import { EmployeeContext } from "pages/EmployeeApp/components/EmployeeLayout/EmployeeLayout";
-import { useNavigate } from "react-router-dom";
+
 function EmployeeForm() {
   const { setUserData } = useContext(EmployeeContext);
 
@@ -43,7 +44,7 @@ function EmployeeForm() {
     validationSchema: validationSchema,
     validateOnChange: false,
     onSubmit: (values) => {
-        setUserData(values);
+      setUserData(values);
       navigate(EMPLOYEE_APP_ROUTES.EMPLOYEES);
       console.log(values);
     },

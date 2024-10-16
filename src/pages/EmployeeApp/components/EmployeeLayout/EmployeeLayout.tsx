@@ -1,7 +1,8 @@
-import { LayoutProps } from "pages/EmployeeApp/types";
-import {EMPLOYEE_APP_ROUTES} from "constants/routes"
-
 import { useState, createContext } from "react";
+
+import { LayoutProps } from "pages/EmployeeApp/types";
+import { EMPLOYEE_APP_ROUTES } from "constants/routes";
+
 import {
   LayoutWrapper,
   AppHeader,
@@ -11,44 +12,36 @@ import {
   AppMain,
 } from "./styles";
 
-export const EmployeeContext = createContext<any>({userData:undefined, setUserData:()=>{}})
+export const EmployeeContext = createContext<any>({
+  userData: undefined,
+  setUserData: () => {},
+});
 
-function EmployeeLaout({ children }: LayoutProps) {
+function EmployeeLayout({ children }: LayoutProps) {
+  const [userData, setUserData] = useState<any>([]);
 
-  const [userData, setUserData] = useState<any>(undefined)
   return (
-    <EmployeeContext.Provider value={{
-      userData:userData, setUserData:setUserData
-    }}>
-    <LayoutWrapper>
-      <AppHeader>
-        <HeaderLogo>
+    <EmployeeContext.Provider value={{ userData, setUserData }}>
+      <LayoutWrapper>
+        <AppHeader>
+          <HeaderLogo
+            src="https://www.365akademie.de/wp-content/uploads/2022/11/Microsoft-365-Apps-Logo-1.png"
+            alt="App Logo"
+          />
           <HeaderNav>
-            <HeaderLink
-              style={({ isActive }) => ({
-                fontWeight: isActive ? "bold" : "normal",
-                textDecoration: isActive ? "underline" : "none",
-              })}
-              to={EMPLOYEE_APP_ROUTES.CREATE_EMPLOYEE}
-            >
-              Create Emloyee
+            <HeaderLink to={EMPLOYEE_APP_ROUTES.CREATE_EMPLOYEE}>
+              Create Employee
             </HeaderLink>
 
-            <HeaderLink
-              style={({ isActive }) => ({
-                fontWeight: isActive ? "bold" : "normal",
-                textDecoration: isActive ? "underline" : "none",
-              })}
-              to={EMPLOYEE_APP_ROUTES.EMPLOYEES}
-            >
+            <HeaderLink to={EMPLOYEE_APP_ROUTES.EMPLOYEES}>
               Employees
             </HeaderLink>
           </HeaderNav>
-        </HeaderLogo>
-      </AppHeader>
-      <AppMain>{children}</AppMain>
-    </LayoutWrapper>
+        </AppHeader>
+        <AppMain>{children}</AppMain>
+      </LayoutWrapper>
     </EmployeeContext.Provider>
   );
 }
-export default EmployeeLaout;
+
+export default EmployeeLayout;

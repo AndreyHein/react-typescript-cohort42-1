@@ -5,8 +5,8 @@ export interface LayoutProps {
 }
 
 export interface UserDataProps {
-    name: string;
-    surname: string;
-    age: string;
-    jobPosition: string;
-  }
+  name: string;
+  surname: string;
+  age: string;
+  jobPosition: string;
+}

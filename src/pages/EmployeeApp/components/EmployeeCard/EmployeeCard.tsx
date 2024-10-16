@@ -1,22 +1,34 @@
-import { CardContainer, CardWrapper, CardItem } from "./styles";
 import { useContext } from "react";
+
 import { EmployeeContext } from "pages/EmployeeApp/components/EmployeeLayout/EmployeeLayout";
+
+import { CardLabel, CardContainer, CardItem } from "./styles";
 
 function EmployeeCard() {
   const { userData } = useContext(EmployeeContext);
   console.log(userData);
   return (
     <CardContainer>
-      <CardWrapper>
-        {userData && (
-          <>
-          <CardItem>{userData.name}</CardItem>
-          <CardItem>{userData.surname}</CardItem>
-          <CardItem>{userData.age}</CardItem>
-          <CardItem>{userData.jobPosition}</CardItem>
+      {userData && (
+        <>
+          <CardLabel>
+            Name:
+            <CardItem>{userData.name}</CardItem>
+          </CardLabel>
+          <CardLabel>
+            Surname:
+            <CardItem>{userData.surname}</CardItem>
+          </CardLabel>
+          <CardLabel>
+            Age:
+            <CardItem>{userData.age}</CardItem>
+          </CardLabel>
+          <CardLabel>
+            Job Position:
+            <CardItem>{userData.jobPosition}</CardItem>
+          </CardLabel>
         </>
-        )}
-      </CardWrapper>
+      )}
     </CardContainer>
   );
 }
