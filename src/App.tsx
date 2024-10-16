@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import GlobalStyles from "styles/GlobalStyles";
 
+import EmployeeApp from "pages/EmployeeApp/EmployeeApp";
+
 import Layout from "components/Lauout/Lauout";
 import Home from "pages/UserApp/Home/Home";
 import Clients from "pages/UserApp/Clients/Clients";
@@ -37,6 +39,7 @@ function App() {
   return (
     <BrowserRouter>
       <GlobalStyles />
+      <EmployeeApp />
       {/* <Layout>
         <Routes>
           <Route path={APP_ROUTES.HOME} element={<Home />} />
@@ -73,7 +76,7 @@ function App() {
       {/* <Homework_08 /> */}
       {/* <Homework_09 /> */}
       {/* <Homework_11 /> */}
-      <Homework_13 />
+      {/* <Homework_13 /> */}
       {/* CONSULTATIONS */}
       {/* <Consultation_03 /> */}
     </BrowserRouter>

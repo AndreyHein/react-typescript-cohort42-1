@@ -9,7 +9,7 @@ function BlogManagement() {
   const [message, setMessage] = useState<undefined | string>(undefined);
 
   const getMessage = () => {
-    setMessage((prev) => prev);
+    {setMessage((prev) => prev)};
   };
 
   return (
