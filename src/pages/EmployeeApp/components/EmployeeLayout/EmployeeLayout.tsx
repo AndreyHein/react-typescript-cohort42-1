@@ -10,12 +10,12 @@ import {
   AppMain,
 } from "./styles";
 
-export const EmployeeContex = createContext<any>({userData:undefined, setUserData:()=>{}})
+export const EmployeeContext = createContext<any>({userData:undefined, setUserData:()=>{}})
 function EmployeeLaout({ children }: LayoutProps) {
 
   const [userData, setUserData] = useState<any>(undefined)
   return (
-    <EmployeeContex.Provider value={{
+    <EmployeeContext.Provider value={{
       userData:userData, setUserData:setUserData
     }}>
     <LayoutWrapper>
@@ -46,7 +46,7 @@ function EmployeeLaout({ children }: LayoutProps) {
       </AppHeader>
       <AppMain>{children}</AppMain>
     </LayoutWrapper>
-    </EmployeeContex.Provider>
+    </EmployeeContext.Provider>
   );
 }
 export default EmployeeLaout;

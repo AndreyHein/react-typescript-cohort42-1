@@ -10,8 +10,11 @@ import About from "pages/UserApp/About/About";
 import Techcorp from "pages/UserApp/Clients/Techcorp/Techcorp";
 import Greenenergy from "pages/UserApp/Clients/Greenenergy/Greenenergy";
 import Healthplus from "pages/UserApp/Clients/Healthplus/Healthplus";
+import EmployeeLayout from "pages/EmployeeApp/components/EmployeeLayout/EmployeeLayout";
+import EmployeeForm from "pages/EmployeeApp/components/EmployeeForm/EmployeeForm";
 
 import { APP_ROUTES } from "./constants/routes";
+import { EMPLOYEE_APP_ROUTES } from "./constants/routes";
 
 // HOMEWORKS
 import Homework_06 from "homeworks/Homework_06/Homework_06";
@@ -59,6 +62,13 @@ function App() {
           <Route path="*" element="Page Is Not Found"/>
         </Routes>
       </Layout> */}
+      <EmployeeLayout>
+        <Routes>
+        <Route path={EMPLOYEE_APP_ROUTES.CREATE_EMPLOYEE} element={<EmployeeForm />} />
+        {/* <Route path={EMPLOYEE_APP_ROUTES.EMPLOYEES} element={<Employees />} /> */}
+        </Routes>
+
+      </EmployeeLayout>
       {/* LESSONS */}
       {/* <Lesson_06 /> */}
       {/* <Lesson_07 /> */}
@@ -73,7 +83,7 @@ function App() {
       {/* <Homework_08 /> */}
       {/* <Homework_09 /> */}
       {/* <Homework_11 /> */}
-      <Homework_13 />
+      {/* <Homework_13 /> */}
       {/* CONSULTATIONS */}
       {/* <Consultation_03 /> */}
     </BrowserRouter>
