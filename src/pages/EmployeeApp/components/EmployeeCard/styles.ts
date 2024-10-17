@@ -32,3 +32,9 @@ export const CardLabel = styled.span`
   font-weight: normal;
   color: ${colors.PRIMARY};
 `;
+
+export const UsersNotFound = styled.p`
+font-size: 30px;
+font-weight: bold;
+color: white;
+`

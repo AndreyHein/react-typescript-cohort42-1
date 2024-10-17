@@ -10,6 +10,7 @@ import { EMPLOYEE_APP_ROUTES } from "constants/routes";
 
 import { EmployeeFormContainer, InputsContainer } from "./styles";
 import { EMPLOYEE_FORM_NAMES } from "./types";
+import { UserDataProps } from "pages/EmployeeApp/types";
 
 function EmployeeForm() {
   const { setUserData } = useContext(EmployeeContext);
@@ -44,9 +45,10 @@ function EmployeeForm() {
     validationSchema: validationSchema,
     validateOnChange: false,
     onSubmit: (values) => {
-      setUserData(values);
+      setUserData((prevValue:UserDataProps[]) => {
+        return[...prevValue, values]
+      });
       navigate(EMPLOYEE_APP_ROUTES.EMPLOYEES);
-      console.log(values);
     },
   });
 

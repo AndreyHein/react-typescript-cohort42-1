@@ -1,6 +1,6 @@
 import { useState, createContext } from "react";
 
-import { LayoutProps } from "pages/EmployeeApp/types";
+import { LayoutProps, UserDataProps, EmployeeContextState } from "pages/EmployeeApp/types";
 import { EMPLOYEE_APP_ROUTES } from "constants/routes";
 
 import {
@@ -12,13 +12,14 @@ import {
   AppMain,
 } from "./styles";
 
-export const EmployeeContext = createContext<any>({
-  userData: undefined,
+export const EmployeeContext = createContext<EmployeeContextState>({
+  userData: [],
   setUserData: () => {},
 });
 
 function EmployeeLayout({ children }: LayoutProps) {
-  const [userData, setUserData] = useState<any>([]);
+  const [userData, setUserData] = useState<UserDataProps[]>([]);
+  console.log(userData)
 
   return (
     <EmployeeContext.Provider value={{ userData, setUserData }}>
